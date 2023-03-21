@@ -15,6 +15,7 @@ public class TestSharepointHandler {
         System.out.println(bearer);
         String suc = appInSharepoint.uploadFile("C:/data/temp/testfile.csv", "Shared%20Documents/uploadTest", "testfileSharepoint.csv", bearer);
         System.out.println(suc); //bearer
+        assert suc.matches("\\{[A-F0-9\\-]{36}\\},\\d,\\d");
     }
 
     @Disabled
