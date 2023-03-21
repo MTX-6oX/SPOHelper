@@ -25,12 +25,12 @@ import java.util.List;
 
 public class SharepointHandler {
 
-    //private final Config config;
-    private String configDomain;
-    private String configSite;
-    private String configClient;
-    private String configSecret;
     Gson gson = new Gson();
+    //private final Config config;
+    private final String configDomain;
+    private final String configSite;
+    private final String configClient;
+    private final String configSecret;
 
     public SharepointHandler() {
         configDomain = Helper.prop.getProperty("spo.domain") + "." + Helper.prop.getProperty("spo.host");
@@ -105,12 +105,7 @@ public class SharepointHandler {
     }
 
     private String getBearerToken(String bearerRealm, String ressourceId, CloseableHttpClient httpClient) {
-        //String url = String.format("https://login.microsoftonline.com/%s/oauth2/authorize", bearerRealm);
-        //String url = String.format("https://login.microsoftonline.com/%s/oauth2/token", bearerRealm);
-        //String url = String.format("https://login.microsoftonline.com/%s/oauth2/v2.0/token", bearerRealm);
         String url = String.format("https://accounts.accesscontrol.windows.net/%s/tokens/OAuth/2", bearerRealm);
-        //String url = String.format("https://login.microsoftonline.com/common/oauth2/token", bearerRealm);
-
 
         HttpPost postRequest = new HttpPost(url);
         postRequest.setHeader("Content-Type", "application/x-www-form-urlencoded");

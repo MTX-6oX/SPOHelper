@@ -12,12 +12,11 @@ public class Helper {
     public static String config(String key) {
         String result = null;
         Properties props = new Properties();
-        try(FileInputStream in = new FileInputStream("C:/data/edit.properties")){
+        try (FileInputStream in = new FileInputStream("C:/data/edit.properties")) {
             props.load(in);
             //in.close();
             result = props.getProperty(key);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return result;
