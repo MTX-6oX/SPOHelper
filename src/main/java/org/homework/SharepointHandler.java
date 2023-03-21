@@ -100,7 +100,7 @@ public class SharepointHandler {
             //String bearerToken = body.getString("ContentTag");
             return erg;
         } catch (Exception e) {
-            throw new RuntimeException("Post Request fehlgeschlagen", e);
+            throw new RuntimeException("Upload Post Request failed", e);
         }
     }
 
@@ -122,7 +122,7 @@ public class SharepointHandler {
         try {
             postRequest.setEntity(new UrlEncodedFormEntity(params));
         } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException("Parameter falsch formatiert", e);
+            throw new RuntimeException("Parameters wrongly formatted", e);
         }
 
         try {
@@ -133,7 +133,7 @@ public class SharepointHandler {
             String bearerToken = body.get("access_token").getAsString();
             return bearerToken;
         } catch (Exception e) {
-            throw new RuntimeException("Post Request zum Holen des Bearer Tokens fehlgeschlagen", e);
+            throw new RuntimeException("Post Request to get Bearer Tokens failed", e);
         }
     }
 
@@ -152,7 +152,7 @@ public class SharepointHandler {
             String ressourceId = extractHeaderElement(headers, "client_id");
             return Pair.of(bearerRealm, ressourceId);
         } catch (Exception e) {
-            throw new RuntimeException("Get Request zum Holen von Bearer realm und client_id fehlgeschlagen", e);
+            throw new RuntimeException("Get Request to get Bearer realm und client_id failed", e);
         }
     }
 
