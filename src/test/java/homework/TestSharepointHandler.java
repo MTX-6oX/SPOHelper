@@ -15,7 +15,6 @@ public class TestSharepointHandler {
         System.out.println(bearer);
         String suc = appInSharepoint.uploadFile("C:/data/temp/testfile.csv","Shared%20Documents/uploadTest","testfileSharepoint.csv",bearer);
         System.out.println(suc); //bearer
-
     }
 
     @Disabled

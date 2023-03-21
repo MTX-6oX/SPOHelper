@@ -1,5 +1,7 @@
 package org.homework;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.tuple.Pair;
@@ -13,7 +15,6 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,6 +30,7 @@ public class SharepointHandler {
     private String configSite;
     private String configClient;
     private String configSecret;
+    Gson gson = new Gson();
 
     public SharepointHandler() {
         configDomain = Helper.prop.getProperty("spo.domain") + "." + Helper.prop.getProperty("spo.host");
@@ -84,14 +86,15 @@ public class SharepointHandler {
             HttpResponse response = httpClient.execute(postRequest);
 
             String bodyJson = IOUtils.toString(response.getEntity().getContent(), Charset.defaultCharset());
-            JSONObject body = new JSONObject(bodyJson);
+            JsonObject body = gson.fromJson(bodyJson, JsonObject.class);
+
 
             String erg = "";
             if (!body.has("d")) {
                 erg = bodyJson;
             } else {
                 //System.out.println(body.getJSONObject("d").getString("ContentTag"));
-                erg = body.getJSONObject("d").getString("ContentTag");
+                erg = body.getAsJsonObject("d").get("ContentTag").getAsString();
             }
 
             //String bearerToken = body.getString("ContentTag");
@@ -131,8 +134,8 @@ public class SharepointHandler {
             HttpResponse response = httpClient.execute(postRequest);
 
             String bodyJson = IOUtils.toString(response.getEntity().getContent(), Charset.defaultCharset());
-            JSONObject body = new JSONObject(bodyJson);
-            String bearerToken = body.getString("access_token");
+            JsonObject body = gson.fromJson(bodyJson, JsonObject.class);
+            String bearerToken = body.get("access_token").getAsString();
             return bearerToken;
         } catch (Exception e) {
             throw new RuntimeException("Post Request zum Holen des Bearer Tokens fehlgeschlagen", e);
