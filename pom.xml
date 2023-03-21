@@ -25,37 +25,13 @@
                         </configuration>
                     </execution>
                 </executions>
-                <!--executions>
-                    <execution>
-                        <id>copy</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>[ groupId ]</groupId>
-                                    <artifactId>[ artifactId ]</artifactId>
-                                    <version>[ version ]</version>
-                                    <type>[ packaging ]</type>
-                                    <classifier> [classifier - optional] </classifier>
-                                    <overWrite>[ true or false ]</overWrite>
-                                    <outputDirectory>[ output directory ]</outputDirectory>
-                                    <destFileName>[ filename ]</destFileName>
-                                </artifactItem>
-                            </artifactItems>
-
-                        </configuration>
-                    </execution>
-                </executions-->
             </plugin>
         </plugins>
     </build>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -75,11 +51,6 @@
             <artifactId>commons-io</artifactId>
             <version>2.6</version>
         </dependency>
-        <!--dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20200518</version>
-        </dependency-->
         <!-- NEW ABOVE -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -105,48 +76,6 @@
             <version>3.12.0</version>
             <type>jar</type>
         </dependency>
-        <!--dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-        </dependency-->
-        <!--<dependency>
-            <groupId>hk.quantr</groupId>
-            <artifactId>quantr-java-library</artifactId>
-            <version>1.0</version>
-        </dependency>-->
-        <!--dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>23.5-jre</version>
-            <scope>test</scope>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version> 5.9.2</version>
-            <scope>test</scope>
-        </dependency-->
-        <!--		<dependency>
-                    <groupId>com.microsoft.azure</groupId>
-                    <artifactId>azure-functions-java-core</artifactId>
-                    <version>[1.0.0-beta-1,1.0.0)</version>
-                </dependency>-->
-        <!--		<dependency>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web</artifactId>
-                    <exclusions>
-                        <exclusion>
-                            <groupId>ch.qos.logback</groupId>
-                            <artifactId>logback-classic</artifactId>
-                        </exclusion>
-                        <exclusion>
-                            <groupId>org.slf4j</groupId>
-                            <artifactId>log4j-over-slf4j</artifactId>
-                        </exclusion>
-                    </exclusions>
-                </dependency>-->
     </dependencies>
 
 </project>
