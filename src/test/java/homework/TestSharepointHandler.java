@@ -12,7 +12,7 @@ public class TestSharepointHandler {
         //SharepointHandler appInSharepoint = new SharepointHandler("303jyz.sharepoint.com","home_Exports","3c67e304-0560-4398-bde4-68bea44cfef4","uBkQyLT44isor/5G7KUgDwLDGJ2z0q1HldjnMqLQJYs=");
         SharepointHandler appInSharepoint = new SharepointHandler();
         String bearer = appInSharepoint.authenticate();
-        System.out.println(bearer);
+        //System.out.println(bearer);
         String suc = appInSharepoint.uploadFile("C:/data/temp/testfile.csv", "Shared%20Documents/uploadTest", "testfileSharepoint.csv", bearer);
         System.out.println(suc); //bearer
         assert suc.matches("\\{[A-F0-9\\-]{36}\\},\\d,\\d");
